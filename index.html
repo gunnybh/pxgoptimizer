@@ -111,56 +111,56 @@
 </head>
 <body>
     <div class="container">
-        <h1>Optimizador de Ítems Crafteados</h1>
+        <h1>Quantas gasto e quantas vendo?</h1>
 
         <table>
             <thead>
                 <tr>
-                    <th>Imagen</th>
-                    <th>Ítem</th>
-                    <th>Cantidad</th>
+                    <th>Icon</th>
+                    <th>Item</th>
+                    <th>Valor</th>
                 </tr>
             </thead>
             <tbody id="tabla-items">
                 <tr>
                     <td><img src="goldenbar.png" alt="Golden Bars"></td>
-                    <td>Golden Bars Disponibles</td>
-                    <td><input type="number" id="golden" value="567"></td>
+                    <td>Golden Bars Disponíveis</td>
+                    <td><input type="number" id="golden" value="567" min="0" max="10000"></td>
                 </tr>
                 <tr>
                     <td><img src="pawn.png" alt="Pawn"></td>
                     <td>Pawn</td>
-                    <td><input type="number" id="pawn" value="1000"></td>
+                    <td><input type="number" id="pawn" value="1000" min="0" max="10000"></td>
                 </tr>
                 <tr>
                     <td><img src="metaljaw.png" alt="Metal Jaw"></td>
                     <td>Metal Jaw</td>
-                    <td><input type="number" id="metaljaw" value="900"></td>
+                    <td><input type="number" id="metaljaw" value="900" min="0" max="10000"></td>
                 </tr>
                 <tr>
                     <td><img src="blackfin.png" alt="Black Fin"></td>
                     <td>Black Fin</td>
-                    <td><input type="number" id="blackfin" value="970"></td>
+                    <td><input type="number" id="blackfin" value="970" min="0" max="10000"></td>
                 </tr>
                 <tr>
                     <td><img src="techball.png" alt="Tech Ball"></td>
                     <td>Tech Ball</td>
-                    <td><input type="number" id="techball" value="19000"></td>
+                    <td><input type="number" id="techball" value="19000" min="0" max="50000"></td>
                 </tr>
                 <tr>
                     <td><img src="miniwing.png" alt="Mini Wing"></td>
                     <td>Mini Wing</td>
-                    <td><input type="number" id="miniwing" value="7400"></td>
+                    <td><input type="number" id="miniwing" value="7400" min="0" max="50000"></td>
                 </tr>
                 <tr>
                     <td><img src="dogear.png" alt="Dog Ear"></td>
                     <td>Dog Ear</td>
-                    <td><input type="number" id="dogear" value="1000"></td>
+                    <td><input type="number" id="dogear" value="1000" min="0" max="10000"></td>
                 </tr>
                 <tr>
                     <td><img src="hyenatail.png" alt="Hyena Tail"></td>
                     <td>Hyena Tail</td>
-                    <td><input type="number" id="hyenatail" value="800"></td>
+                    <td><input type="number" id="hyenatail" value="800" min="0" max="10000"></td>
                 </tr>
             </tbody>
         </table>
@@ -171,7 +171,7 @@
     </div>
 
     <footer>
-        Creado por Gunny | Contacto: Discord @tinilovic
+        Criado por Gunny | Contato: Discord @tinilovic
     </footer>
 
     <script>
@@ -196,14 +196,15 @@
             let golden_usadas_craft = 2 * items_crafteados;
             let total_golden = golden_usadas_craft + golden_vendidas;
 
-            const resultado_text = `Estado: OK
-Items crafteados: ${items_crafteados}
-Golden bars vendidas: ${golden_vendidas}
-Golden bars usadas para craftear: ${golden_usadas_craft}
-Total golden bars usadas: ${total_golden}`;
+            const resultado_text = `Estado: Resolvido
+Itens a craftar: ${items_crafteados}
+Qtd. de Golden Bars a vender: ${golden_vendidas}
+Qtd. de Golden Bars para craftar”: ${golden_usadas_craft}
+Total de Golden Bars usadas: ${total_golden}`;
 
             document.getElementById("resultado").innerText = resultado_text;
         }
     </script>
 </body>
 </html>
+

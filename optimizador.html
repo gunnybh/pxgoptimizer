@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Optimizador de Ítems Crafteados</title>
+    <style>
+        /* Fuentes y fondo */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(120deg, #f0f4f8, #d9e2ec);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Contenedor principal */
+        .container {
+            background-color: #ffffff;
+            padding: 25px 30px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
+            width: 700px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            color: #2a4365;
+            margin-bottom: 25px;
+        }
+
+        /* Tabla estilizada */
+        table {
+            width: 90%; /* más pequeña que antes */
+            margin: 0 auto 20px auto; /* centrada horizontalmente */
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px; /* un poco más pequeño */
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        th {
+            background-color: #edf2f7;
+            color: #2d3748;
+            font-weight: 700;
+            border-bottom: 2px solid #cbd5e0;
+        }
+
+        td {
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        /* Centrado de imágenes dentro de celdas */
+        td img {
+            max-width: 50px; /* limita tamaño de imagen */
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Inputs centrados y más compactos */
+        input[type="number"] {
+            width: 60px; /* más estrecho */
+            padding: 4px;
+            border: 1px solid #cbd5e0;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 12px 25px;
+            font-size: 16px;
+            background-color: #3182ce;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #2b6cb0;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #f7fafc;
+            border: 1px solid #cbd5e0;
+            white-space: pre-line;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+        }
+
+        /* Footer / créditos */
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Optimizador de Ítems Crafteados</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Ítem</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-items">
+                <tr>
+                    <td><img src="goldenbar.png" alt="Golden Bars"></td>
+                    <td>Golden Bars Disponibles</td>
+                    <td><input type="number" id="golden" value="567"></td>
+                </tr>
+                <tr>
+                    <td><img src="pawn.png" alt="Pawn"></td>
+                    <td>Pawn</td>
+                    <td><input type="number" id="pawn" value="1000"></td>
+                </tr>
+                <tr>
+                    <td><img src="metaljaw.png" alt="Metal Jaw"></td>
+                    <td>Metal Jaw</td>
+                    <td><input type="number" id="metaljaw" value="900"></td>
+                </tr>
+                <tr>
+                    <td><img src="blackfin.png" alt="Black Fin"></td>
+                    <td>Black Fin</td>
+                    <td><input type="number" id="blackfin" value="970"></td>
+                </tr>
+                <tr>
+                    <td><img src="techball.png" alt="Tech Ball"></td>
+                    <td>Tech Ball</td>
+                    <td><input type="number" id="techball" value="19000"></td>
+                </tr>
+                <tr>
+                    <td><img src="miniwing.png" alt="Mini Wing"></td>
+                    <td>Mini Wing</td>
+                    <td><input type="number" id="miniwing" value="7400"></td>
+                </tr>
+                <tr>
+                    <td><img src="dogear.png" alt="Dog Ear"></td>
+                    <td>Dog Ear</td>
+                    <td><input type="number" id="dogear" value="1000"></td>
+                </tr>
+                <tr>
+                    <td><img src="hyenatail.png" alt="Hyena Tail"></td>
+                    <td>Hyena Tail</td>
+                    <td><input type="number" id="hyenatail" value="800"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button onclick="resolver()">Calcular</button>
+
+        <div id="resultado"></div>
+    </div>
+
+    <footer>
+        Creado por Gunny | Contacto: Discord @tinilovic
+    </footer>
+
+    <script>
+        function resolver() {
+            const g = parseInt(document.getElementById("golden").value);
+            const precio_gb = 11000;
+            const pawn = parseInt(document.getElementById("pawn").value);
+            const metaljaw = parseInt(document.getElementById("metaljaw").value);
+            const blackfin = parseInt(document.getElementById("blackfin").value);
+            const techball = parseInt(document.getElementById("techball").value);
+            const miniwing = parseInt(document.getElementById("miniwing").value);
+            const dogear = parseInt(document.getElementById("dogear").value);
+            const hyenatail = parseInt(document.getElementById("hyenatail").value);
+
+            const costo_materiales = 26*metaljaw + 25*pawn + 20*blackfin + techball + 20*dogear + 20*hyenatail + miniwing;
+
+            let max_items_por_golden = Math.floor(g / 2);
+            let max_items_por_presupuesto = Math.floor((precio_gb * g) / costo_materiales);
+            let items_crafteados = Math.min(max_items_por_golden, max_items_por_presupuesto);
+
+            let golden_vendidas = Math.max(0, g - 2*items_crafteados);
+            let golden_usadas_craft = 2 * items_crafteados;
+            let total_golden = golden_usadas_craft + golden_vendidas;
+
+            const resultado_text = `Estado: OK
+Items crafteados: ${items_crafteados}
+Golden bars vendidas: ${golden_vendidas}
+Golden bars usadas para craftear: ${golden_usadas_craft}
+Total golden bars usadas: ${total_golden}`;
+
+            document.getElementById("resultado").innerText = resultado_text;
+        }
+    </script>
+</body>
+</html>
